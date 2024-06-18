@@ -1,0 +1,12 @@
+---
+// import { published } from "@data/post"
+import { getCollection, getEntry } from "astro:content";
+import Wrapper from "@components/Wrapper";
+import ArtBlock from "@components/ArtBlock";
+
+const articles = (await getCollection('articles')).sort((a, b) => (a.data.date < b.data.date) ? 1 : -1) 
+---
+
+<Wrapper title="Simple Wrapper">
+	{articles.map((i) => <ArtBlock article={i} />)}
+</Wrapper>

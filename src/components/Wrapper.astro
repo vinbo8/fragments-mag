@@ -1,0 +1,24 @@
+---
+	import '@fontsource/vesper-libre'
+	import '@fontsource/inter'
+	import Top from "@components/Top";
+	import "../style/base.css"
+	const {title} = Astro.props;
+---
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>{title}</title>
+</head>
+<body>
+	<div class="main">
+		<div class="">
+			<Top />
+		</div>
+		<div class="mx-auto max-w-5xl">
+			<slot />
+		</slot>
+	</div>
+</body>
+</html>

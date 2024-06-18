@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+import { Debug } from 'astro:components';
+import Content from "@components/Wrapper"
+import Preview from "@components/preview"
+
+
+export async function getStaticPaths() {
+	const issueEntries = await getCollection('issues')
+	return issueEntries.map((entry) => {
+		return {
+			params: { issue: entry.slug},
+			props: { entry }
+		};
+	})
+}
+
+const { entry } = Astro.props
+const articles = await getCollection('articles', (a) => a.slug.split("/")[0].split("_")[1] == entry.slug)
+
+---
+
+
+<Content title="Simple Blog">
+	<div class="content container">	
+		{articles.map((a) => <Preview issue={a} />)}
+	</div>
+</Content >

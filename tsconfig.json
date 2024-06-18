@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"moduleResolution": "node",
+		"module": "ES2022",
+		"target": "es2022",
+		"baseUrl": ".",
+		"paths": {
+			"@components/*": [
+				"src/components/*.astro"
+			],
+			"@layouts/*": [
+				"src/components/*.astro"
+			],
+			"@data/*": [
+				"src/data/*.ts"
+			],
+		},
+	}
+}

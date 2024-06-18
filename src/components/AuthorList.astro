@@ -1,0 +1,15 @@
+---
+	const { authors } = Astro.props
+---
+{
+	authors.map((author, i, {length}) => {
+	// var authorSlug = x.replace(/[.,]/g, '').replace(/\s/g, '-').toLowerCase()
+		if (length - 1 === i) {
+			return <span><a href={`/authors/${author.slug}`}>{author.data.name}</a></span>
+		}
+		else {
+			return <span><a href={`/authors/${author.slug}`}>{author.data.name}</a>, </span>
+		}
+	})
+}
+<!-- class="align-top font-sans text-black text-base" -->
