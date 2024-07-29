@@ -20,7 +20,7 @@
 						<Image src={article.data.image} alt="" class="basis-1/12 group-hover:saturate-0 duration-200" />)}
 	<div class="border border-transparent pr-4 pl-1 pb-2 text-p-blue hover:border-p-blue transition duration-200 bg-contain">
 		<div class="font-sans text-2xl mb-2">
-			<a class="hover:text-p-red " href={`/${article.slug}`}>{article.data.title}</a>
+			<a class="hover:text-p-red " href={`${import.meta.env.BASE_URL}/${article.slug}`}>{article.data.title}</a>
 		</div>
 		<div class="mb-4">
 			<span class="text-base align-middle uppercase "><AuthorList authors={authors} /></span>

@@ -23,6 +23,7 @@ export default defineConfig(
   },
   site: 'http://vinbo8.github.io/',
   base: '/fragments-mag',
+  trailingSlash: 'never',
   integrations: [sitemap(), 
     tailwind({applyBaseStyles: false,}),
   ],
