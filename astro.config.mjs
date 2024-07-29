@@ -21,7 +21,8 @@ export default defineConfig(
       }
     }]
   },
-  site: 'http://localhost:3000/',
+  site: 'http://vinbo8.github.io/',
+  base: '/fragments-mag',
   integrations: [sitemap(), 
     tailwind({applyBaseStyles: false,}),
   ],

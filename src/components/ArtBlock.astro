@@ -1,30 +1,30 @@
 ---
+	import { Image } from 'astro:assets';
 	import { getEntry, getEntries } from 'astro:content';
 	import { Debug } from "astro:components"
 	import AuthorList from "@components/AuthorList"
 	const { article, showAuthor = true, showThumb = true } = Astro.props
 	var date = article.data.date
 
-	const datestring = `${date.getDate()} ${date.toLocaleDateString(undefined, {month: 'long'})}, ${date.getFullYear()}`
+	const datestring = `${date.getDate()} ${date.toLocaleDateString(undefined, {month: 'long'})} ${date.getFullYear()}`
 	const authors = await getEntries(article.data.authors)
+	const width = article.data.expand ? "w-8/12" : "w-4/12"
+	const parentClass =  "flex flex-col my-4 px-6 space-y-1 min-w-72 group " + width
 	// const authors = article.data.authors.split(",").map(s => s.trim())
 ---
 
-<div class="mb-2">
-	{showAuthor && <span class="font-sans text-lg"><a href={`/${article.slug}`}>{article.data.title}</a></span>}
-	{showAuthor ? <br class="mb-4" /> : <br/>}
-	<div class="mb-6 overflow-hidden">
-		{
-			showThumb && <img class="float-left border-2 border-slate-600 mr-5" src="https://viewpointmag.com/wp-content/uploads/2023/01/marcha2-1-150x150.jpg">
-		}
-		<!-- <Debug {authors} /> -->
-		{
-			showAuthor ? <AuthorList authors={authors} /> 
-				: <span class="font-sans text-base align-top"><a href={`/${article.slug}`}>{article.data.title}</a></span>
-		}
-		<span class="align-top font-sans text-base text-slate-700">{datestring}</span>
-		<br class="mb-2" /> 
-		<span class="align-top text-sm">{article.data.abstract}</span>
+<div class={parentClass} data-aos="fade-in">
+	{article.data.image && 
+		(article.data.expand ? 
+						<Image src={article.data.image} alt="" class="border-4 border-transparent basis-1/12" /> :
+						<Image src={article.data.image} alt="" class="basis-1/12 group-hover:saturate-0 duration-200" />)}
+	<div class="border border-transparent pr-4 pl-1 pb-2 text-p-blue hover:border-p-blue transition duration-200 bg-contain">
+		<div class="font-sans text-2xl mb-2">
+			<a class="hover:text-p-red " href={`/${article.slug}`}>{article.data.title}</a>
+		</div>
+		<div class="mb-4">
+			<span class="text-base align-middle uppercase "><AuthorList authors={authors} /></span>
+		</div>
+		<div class="hidden lg:block overflow-scroll font-hargle font-medium text-base text-black">{article.data.abstract}</div>
 	</div>
-	<hr>
 </div>

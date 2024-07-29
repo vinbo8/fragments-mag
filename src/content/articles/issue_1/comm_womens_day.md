@@ -4,7 +4,8 @@ date: 2024-05-10
 draft: true
 authors: 
 - clara-zetkin 
-abstract: Storms of enthusiasm greeted the motion of our Bulgarian comrades and the resolution of the Second International Conference of Communist Women at Moscow, to celebrate Women’s Day everywhere on March 8th, the day which previously was observed only by Russian comrades. Hearts beat wildly, eyes had a far-off look, and the will to do dauntlessly rose supreme.
+image: "./img/p1.png"
+abstract: Storms of enthusiasm greeted the motion of our Bulgarian comrades and the resolution of the Second International Conference of Communist Women at Moscow, to celebrate Women’s Day everywhere on March 8th, the day which previously was observed only by Russian comrades. 
 ---
 Source: International Press Correspondence, Vol. 2 No. 18, 8 March 1922, pp. 129–130.
 Transcription & HTML Markup: Einde O’Callaghan for the Marxists’ Internet Archive.

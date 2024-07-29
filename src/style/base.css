@@ -2,11 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+/* @layer base {
   a {
-    @apply text-slate-600 hover:text-rose-700 transition duration-300;
+    @apply text-p-blue hover:text-p-red transition duration-300;
   }
-  a.hargle {
-	@apply text-white;
+} */
+
+@layer components {
+  .default-hyper {
+    @apply text-p-blue hover:text-p-red transition duration-300;
+  }
+  .invert-hyper {
+    @apply text-p-blue group-hover:text-white hover:text-p-red transition duration-300;
+  }
+  .max-width {
+    @apply max-w-6xl mx-auto
   }
 }

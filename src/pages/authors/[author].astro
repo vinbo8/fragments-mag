@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import { Debug } from 'astro:components';
 import Wrapper from "@components/Wrapper"
-import ArtBlock from "@components/ArtBlock"
+import InnerBlock from "@components/InnerBlock"
 import { getEntries } from "astro:content";
 
 export async function getStaticPaths() {
@@ -23,11 +23,11 @@ const articles = (await getCollection('articles'))
 ---
 
 <Wrapper title="Simple Wrapper">
-	<div class="flex flex-col font-sans text-3xl text-center max-w-5xl space-y-2">
-		<span class="font-sans text-3xl">{author.data.name}</span>
+	<div class="flex flex-col font-sans text-3xl text-left space-y-2">
+		<span class="font-sans text-5xl">{author.data.name}</span>
 		<br class="my-2"/>
-		<span class="font-serif text-sm">{author.body}</span>
+		<span class="font-sans text-lg">{author.body}</span>
 	</div>
 	<hr class="mt-4">
-	{articles.map((i) => <ArtBlock article={i} showAuthor={false} showThumb={false}/>)}
+	{articles.map((i) => <InnerBlock article={i} showAuthor={false} showThumb={false}/>)}
 </Wrapper>

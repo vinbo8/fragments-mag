@@ -4,7 +4,9 @@ date: 2024-06-02
 authors: 
     - rosa-luxemburg
 draft: false
-abstract: The second condition of the gradual realisation of socialism is according to Bernstein, the evolution of the State in society. It has become a commonplace to say that the present State is a class State. This, too, like referring to capitalist society, should not be understood in a rigorous absolute manner, but dialectically.
+image: "./img/wide.png"
+expand: true
+abstract: The second condition of the gradual realisation of socialism is according to Bernstein, the evolution of the State in society. It has become a commonplace to say that the present State is a class State.
 ---	
 # Heading 1
 The second condition of the gradual realisation of socialism is according to Bernstein, the evolution of the State in society. It has become a commonplace to say that the present State is a class State. This, too, like referring to capitalist society, should not be understood in a rigorous absolute manner, but dialectically.

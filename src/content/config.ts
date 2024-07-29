@@ -2,11 +2,13 @@ import { z, reference, defineCollection } from 'astro:content';
 
 const articleCollection = defineCollection({
 	type: 'content',
-	schema: z.object({
+	schema: ({ image }) => z.object({
 		title: z.string(),
 		authors: z.array(reference('authors')),
 		draft: z.boolean(),
 		abstract: z.string(),
+		expand: z.boolean().default(false),
+		image: image().optional(),
 		date: z.date(),
 		time: z.string().time().optional(),
 	})
