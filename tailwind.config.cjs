@@ -7,7 +7,7 @@ module.exports = {
 			fontFamily: {
 				serif: ['Noto Serif SC', 'Vesper Libre', ...defaultTheme.fontFamily.serif],
 				sans: ['Barlow Semi Condensed', ...defaultTheme.fontFamily.sans],
-				hargle: ['Work Sans'],
+				hargle: ['IBM Plex Sans Condensed'],
 			},
 			colors: {
 				'p-red': 

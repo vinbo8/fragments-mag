@@ -16,6 +16,6 @@
     @apply text-p-blue group-hover:text-white hover:text-p-red transition duration-300;
   }
   .max-width {
-    @apply max-w-6xl mx-auto
+    @apply max-w-5xl mx-auto
   }
 }

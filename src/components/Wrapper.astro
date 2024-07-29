@@ -5,12 +5,14 @@
 	import '@fontsource/noto-serif-sc'
 	import '@fontsource/barlow-semi-condensed'
 	import '@fontsource/cabin-condensed'
+	import '@fontsource/cabin'
 	import '@fontsource/merriweather'
 	import '@fontsource/libre-baskerville'
 	import '@fontsource/roboto-slab'
 	import '@fontsource/crimson-pro'
 	import '@fontsource/alegreya'
 	import '@fontsource/work-sans'
+	import '@fontsource/ibm-plex-sans-condensed'
 
 	import 'aos/dist/aos.css'; 
 
@@ -35,7 +37,7 @@
 	</slot>
 	<script>
 		import AOS from 'aos'; 
-		AOS.init(); 
+		AOS.init({once: true, offset:0}); 
 	</script> 
 </body>
 </html>

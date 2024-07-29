@@ -2,7 +2,7 @@
 // import { published } from "@data/post"
 import { getCollection, getEntry } from "astro:content";
 import Wrapper from "@components/Wrapper";
-import ArtBlock from "@components/ArtBlock";
+import OuterBlock from "@components/OuterBlock";
 
 const articles = (await getCollection('articles')).sort((a, b) => (a.data.date < b.data.date) ? 1 : -1) 
 ---
@@ -11,7 +11,7 @@ const articles = (await getCollection('articles')).sort((a, b) => (a.data.date <
 
 	<div class="bg-white">
 		<div class="max-width flex flex-row py-4 flex-wrap justify-around items-stretch">
-			{articles.map((i) => <ArtBlock article={i} />)}
+			{articles.map((i) => <OuterBlock article={i} />)}
 		</div>
 	</div>
 </Wrapper>

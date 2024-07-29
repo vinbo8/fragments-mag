@@ -16,7 +16,7 @@
 <div class={parentClass}>
 	<div class="border-transparent pr-4 pb-2 text-p-blue hover:border-p-blue transition duration-200"> 
 		<div class="font-sans text-4xl mb-2">
-			<a class="hover:text-p-red " href={`/${article.slug}`}>{article.data.title}</a>
+			<a class="hover:text-p-red " href={`${import.meta.env.BASE_URL}/${article.slug}`}>{article.data.title}</a>
 		</div>
 		<div class="mb-4">
 			<span class="text-lg align-middle uppercase "><AuthorList authors={authors} /></span>
