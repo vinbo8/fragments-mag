@@ -1,13 +1,14 @@
 ---
 // import { published } from "@data/post"
+
 import Wrapper from "@components/Wrapper";
-const {frontmatter} = Astro.props;
 ---
 
+<meta charset="utf-8">
 <Wrapper title="Fragments Magazine">
-    <div class="flex flex-col font-sans space-y-2">
+    <div class="flex flex-col space-y-2">
 		<!-- <span class="font-sans text-5xl text-center mb-10">{frontmatter.title}</span> -->
-		<span class="font-hargle text-base leading-normal"><slot /></span>
+		<div class="font-serif text-base leading-normal max-width prose"><slot /></div>
 	</div>
 	<hr class="mt-4">
 </Wrapper>

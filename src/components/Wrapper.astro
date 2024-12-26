@@ -32,10 +32,11 @@
 	<div>
 		<Top />
 	</div>
-	<div class="max-width pt-40">
+	<div>
 		<slot />
-	</slot>
+	</div>
 	<script>
+		// @ts-ignore
 		import AOS from 'aos'; 
 		AOS.init({once: true, offset:0}); 
 	</script> 

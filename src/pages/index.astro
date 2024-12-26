@@ -1,0 +1,16 @@
+---
+// import { published } from "@data/post"
+import { getCollection, getEntry } from "astro:content";
+import Wrapper from "@components/Wrapper";
+import IssueBlock from "@components/IssueBlock";
+
+const issues = (await getCollection('issues'))
+---
+
+<Wrapper title="post-machina">	
+	<div class="bg-white">
+		<div class="flex flex-row flex-wrap justify-around items-stretch">
+			{issues.map((i) => <IssueBlock issue={i} />)}
+		</div>
+	</div>
+</Wrapper>

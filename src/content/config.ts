@@ -8,6 +8,7 @@ const articleCollection = defineCollection({
 		draft: z.boolean(),
 		abstract: z.string(),
 		expand: z.boolean().default(false),
+		block: z.number().default(1),
 		image: image().optional(),
 		date: z.date(),
 		time: z.string().time().optional(),
@@ -16,9 +17,11 @@ const articleCollection = defineCollection({
 
 const issueCollection = defineCollection({
 	type: 'content',
-	schema: z.object({
+	schema: ({ image }) => z.object({
 		title: z.string(),
 		draft: z.boolean(),
+		image: image(),
+		colour: z.string(),
 	})
 })
 

@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import { Debug } from 'astro:components';
 import Wrapper from "@components/Wrapper"
+import OuterBlock from "@components/OuterBlock";
 import InnerBlock from "@components/InnerBlock"
 import { getEntries } from "astro:content";
 
@@ -16,6 +17,7 @@ export async function getStaticPaths() {
 }
 
 const { author } = Astro.props
+const { Content } = await author.render()
 const articles = (await getCollection('articles'))
 					.sort((a, b) => (a.data.date < b.data.date) ? 1 : -1)
 					.filter((x) => x.data.authors.map((y) => y.slug)
@@ -23,11 +25,19 @@ const articles = (await getCollection('articles'))
 ---
 
 <Wrapper title="Simple Wrapper">
-	<div class="flex flex-col font-sans text-3xl text-left space-y-2">
-		<span class="font-sans text-5xl">{author.data.name}</span>
+	<div class=`max-width font-serif text-center pt-12 pb-12 border-b-2 border-black` data-aos="fade-in">
+				<div class="text-2xl pb-4">{author.data.name}</div>
+				<Content />
+	</div>
+	{articles.map((i) => <OuterBlock article={i} overrideBlock=true />)} 
+
+
+
+	<!-- <div class="flex flex-col font-serif text-3xl text-left space-y-2">
+		<span class="font-serif text-5xl">{author.data.name}</span>
 		<br class="my-2"/>
-		<span class="font-sans text-lg">{author.body}</span>
+		<span class="font-serif text-lg">{author.body}</span>
 	</div>
 	<hr class="mt-4">
-	{articles.map((i) => <InnerBlock article={i} showAuthor={false} showThumb={false}/>)}
+	{articles.map((i) => <InnerBlock article={i} showAuthor={false} showThumb={false}/>)} -->
 </Wrapper>

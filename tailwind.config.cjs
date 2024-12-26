@@ -5,7 +5,7 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				serif: ['Noto Serif SC', 'Vesper Libre', ...defaultTheme.fontFamily.serif],
+				serif: ['Vesper Libre', ...defaultTheme.fontFamily.serif],
 				sans: ['Barlow Semi Condensed', ...defaultTheme.fontFamily.sans],
 				hargle: ['IBM Plex Sans Condensed'],
 			},

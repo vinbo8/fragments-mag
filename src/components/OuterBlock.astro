@@ -3,28 +3,45 @@
 	import { getEntry, getEntries } from 'astro:content';
 	import { Debug } from "astro:components"
 	import AuthorList from "@components/AuthorList"
-	const { article, showAuthor = true, showThumb = true } = Astro.props
+	const { article, overrideBlock = false } = Astro.props
 	var date = article.data.date
 
 	const datestring = `${date.getDate()} ${date.toLocaleDateString(undefined, {month: 'long'})} ${date.getFullYear()}`
 	const authors = await getEntries(article.data.authors)
-	const width = article.data.expand ? "w-8/12" : "w-4/12"
-	const parentClass =  "flex flex-col my-4 px-6 space-y-1 min-w-72 group " + width
+	// let width = article.data.expand ? "w-6/12" : "w-3/12"
+	let width = {1: "w-3/12", 2: "w-6/12", 3: "w-9/12", 4: "w-12/12"}[article.data.block]
+	if (overrideBlock) {
+		width = "w-12/12"
+		article.data.block = 4
+	}
+
+	let f = ""
+	let image_width = ""
+	let text_width = ""
+	let align = "text-left"
+	let hsize = "text-2xl"
+	let tsize = "text-base"
+	if (article.data.block >= 3) {
+		image_width = "w-4/12 mr-4"
+		text_width = "w-8/12 mx-12"
+		f = "flex flex-row"
+		align = "text-center"
+		hsize = "text-4xl"
+		tsize = "text-lg"
+	}
 	// const authors = article.data.authors.split(",").map(s => s.trim())
 ---
 
-<div class={parentClass} data-aos="fade-in">
-	{article.data.image && 
-		(article.data.expand ? 
-						<Image src={article.data.image} alt="" class="border-4 border-transparent basis-1/12" /> :
-						<Image src={article.data.image} alt="" class="border-4 border-transparent basis-1/12 group-hover:saturate-0 duration-200" />)}
-	<div class="border border-transparent pr-4 pl-1 pb-2 text-p-blue hover:border-p-blue transition duration-200 bg-contain">
-		<div class="font-sans text-xl mb-1">
-			<a class="hover:text-p-red " href={`${import.meta.env.BASE_URL}/${article.slug}`}>{article.data.title}</a>
+<div class=`flex flex-col mt-12 px-12 min-w-72 group border-black border-b ${width}` data-aos="fade-in">
+	<!-- <hr class="border-black border-b-0 mb-4"> -->
+	<div class={f}>
+		<Image src={article.data.image} alt="" class=`mb-4 ${image_width}` />
+		<div class=`my-auto ${text_width}`>
+			<!-- <hr class="border-black border-b-0 mb-4"> -->
+			<div class=`font-serif ${hsize} ${align}`><a class="hover:text-p-red" href={`${import.meta.env.BASE_URL}/${article.slug}`}>{article.data.title}</a></div>
+			<div class=`mb-6 ${align} text-lg align-middle uppercase `><AuthorList authors={authors} /></div>
+			<div class=`font-serif ${tsize} text-black ${align} mb-4`>{article.data.abstract}</div>
+			<!-- <hr class="border-black border-b-0"> -->
 		</div>
-		<div class="mb-1">
-			<span class="text-sm align-middle uppercase "><AuthorList authors={authors} /></span>
-		</div>
-		<div class="font-hargle font-normal text-sm text-black">{article.data.abstract}</div>
 	</div>
 </div>

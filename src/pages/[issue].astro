@@ -1,28 +1,52 @@
 ---
 import { getCollection } from "astro:content";
-import { Debug } from 'astro:components';
-import Content from "@components/Wrapper"
-import Preview from "@components/preview"
+import Image from "astro/components/Image.astro";
+import Wrapper from "@components/Wrapper";
+import OuterBlock from "@components/OuterBlock";
+
 
 
 export async function getStaticPaths() {
 	const issueEntries = await getCollection('issues')
-	return issueEntries.map((entry) => {
+	return issueEntries.map((issue) => {
 		return {
-			params: { issue: entry.slug},
-			props: { entry }
+			params: { issue: issue.slug},
+			props: { issue }
 		};
 	})
 }
 
-const { entry } = Astro.props
-const articles = await getCollection('articles', (a) => a.slug.split("/")[0].split("_")[1] == entry.slug)
+const { issue } = Astro.props
+const articles = await getCollection('articles', (a) => a.slug.split("/")[0].split("_")[1] == issue.slug)
+const { Content } = await issue.render()
 
 ---
 
 
-<Content title="Simple Blog">
+<!-- <Content title="Simple Blog">
 	<div class="content container">	
 		{articles.map((a) => <Preview issue={a} />)}
 	</div>
-</Content >
+</Content > -->
+
+
+<Wrapper title="post-machina">	
+
+
+	<div class=`flex max-width ${issue.data.colour} pt-12 pb-12 border-b-2 border-black` data-aos="fade-in">
+		<Image src={issue.data.image} alt="" class="w-3/12 mr-8" />
+		<div class="w-9/12 my-auto">
+			<div class=`font-serif`>
+				<a class="hover:text-p-red text-2xl" href={`${import.meta.env.BASE_URL}/${issue.slug}`}>{issue.data.title}</a>
+				<Content />
+			</div>
+		</div>
+	</div>
+	
+
+	<div class="bg-white">
+		<div class="max-width flex flex-row py-4 flex-wrap justify-around items-stretch">
+			{articles.map((i) => <OuterBlock article={i} />)}
+		</div>
+	</div>
+</Wrapper>

@@ -7,8 +7,7 @@ import OuterBlock from "@components/OuterBlock";
 const articles = (await getCollection('articles')).sort((a, b) => (a.data.date < b.data.date) ? 1 : -1) 
 ---
 
-<Wrapper title="Simple Wrapper">	
-
+<Wrapper title="post-machina">	
 	<div class="bg-white">
 		<div class="max-width flex flex-row py-4 flex-wrap justify-around items-stretch">
 			{articles.map((i) => <OuterBlock article={i} />)}
