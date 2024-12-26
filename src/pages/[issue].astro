@@ -17,8 +17,9 @@ export async function getStaticPaths() {
 }
 
 const { issue } = Astro.props
-const articles = await getCollection('articles', (a) => a.slug.split("/")[0].split("_")[1] == issue.slug)
 const { Content } = await issue.render()
+let articles = await getCollection('articles', (a) => a.slug.split("/")[0].split("_")[1] == issue.slug);
+articles = articles.sort((a, b) => a.data.order < b.data.order ? -1 : 1);
 
 ---
 
@@ -33,20 +34,18 @@ const { Content } = await issue.render()
 <Wrapper title="post-machina">	
 
 
-	<div class=`flex max-width ${issue.data.colour} pt-12 pb-12 border-b-2 border-black` data-aos="fade-in">
-		<Image src={issue.data.image} alt="" class="w-3/12 mr-8" />
-		<div class="w-9/12 my-auto">
-			<div class=`font-serif`>
-				<a class="hover:text-p-red text-2xl" href={`${import.meta.env.BASE_URL}/${issue.slug}`}>{issue.data.title}</a>
-				<Content />
-			</div>
+	<div class=`flex flex-col items-center max-width py-12 border-b-2 border-black` style={`background-color: ${issue.data.colour}`} data-aos="fade-in">
+		<Image src={issue.data.image} alt="" class="mb-8 w-min h-72" />
+		<div class=`font-serif text-center`>
+			<div class="mb-4"><a class="hover:text-p-red" href={`${import.meta.env.BASE_URL}/${issue.slug}`}>{issue.data.title}</a></div>
+			<Content />
 		</div>
 	</div>
 	
 
 	<div class="bg-white">
 		<div class="max-width flex flex-row py-4 flex-wrap justify-around items-stretch">
-			{articles.map((i) => <OuterBlock article={i} />)}
+			{articles.map((i) => <OuterBlock article={i} colour={issue.data.colour} />)}
 		</div>
 	</div>
 </Wrapper>

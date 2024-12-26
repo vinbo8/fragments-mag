@@ -1,8 +1,8 @@
 ---
 title: Socialism & the Myth of the Golden Past
-date: 2020-06-01
-draft: true
+order: 2
 block: 2
+draft: true
 authors: 
     - ralph-miliband
 image: "./img/p4.jpg"

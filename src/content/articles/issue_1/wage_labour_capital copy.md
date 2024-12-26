@@ -1,8 +1,8 @@
 ---
 title:  Wage Labour & Capital 
-date: 2023-06-02
 draft: true
-block: 2
+order: 5
+block: 1
 authors: 
     - karl-marx
     - friedrich-engels

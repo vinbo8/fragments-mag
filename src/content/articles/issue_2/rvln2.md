@@ -1,6 +1,6 @@
 ---
 title: Lorem Ipsum Dolor Sit Amet
-date: 2024-06-01
+order: 3
 authors: 
     - julius-caesar
     - friedrich-engels

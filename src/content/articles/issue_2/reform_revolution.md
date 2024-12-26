@@ -1,6 +1,6 @@
 ---
 title: Reform or Revolution
-date: 2024-06-02
+order: 2
 authors: 
     - rosa-luxemburg
 draft: false

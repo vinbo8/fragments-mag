@@ -5,13 +5,11 @@
 ---
 
 
-<div class=`flex max-width ${issue.data.colour} pt-24 pb-24 border-black border-b-2` data-aos="fade-in">
+<div class=`flex max-width py-24 border-black border-b-2` style={`background-color: ${issue.data.colour}`} data-aos="fade-in">
 	<Image src={issue.data.image} alt="" class="w-3/12 mr-8" />
-	<div class="w-9/12 my-auto">
-		<div class=`font-serif`>
-			<a class="hover:text-p-red text-2xl" href={`${import.meta.env.BASE_URL}/${issue.slug}`}>{issue.data.title}</a>
-			<Content />
-		</div>
+	<div class="w-9/12 my-auto font-serif">
+		<div class="mb-4"><a class="hover:text-p-red text-4xl" href={`${import.meta.env.BASE_URL}/${issue.slug}`}>{issue.data.title}</a></div>
+		<div class="text-lg"><Content /></div>
 	</div>
 </div>
 

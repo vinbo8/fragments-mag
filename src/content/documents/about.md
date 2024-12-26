@@ -1,7 +1,5 @@
----
-layout: ../components/TextBlock.astro
-title: About
----
+# About _post_-machina
+
 ## This journal is run by critical researchers and practitioners of science and technology. 
 
 We work to author, translate, and publish knowledge focused on today’s digital realities and the vast transformation of society brought about by technological advances. Our focus is both practical and theoretical. We, therefore, solicit content of all kinds – from anti-surveillance guides to subversive uses of technology, from theories of digital labour to anti-colonial technoscience.

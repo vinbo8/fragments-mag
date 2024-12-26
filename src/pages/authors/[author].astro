@@ -18,16 +18,19 @@ export async function getStaticPaths() {
 
 const { author } = Astro.props
 const { Content } = await author.render()
-const articles = (await getCollection('articles'))
-					.sort((a, b) => (a.data.date < b.data.date) ? 1 : -1)
-					.filter((x) => x.data.authors.map((y) => y.slug)
-					.includes(author.slug))
+// const articles = (await getCollection('articles'))
+function slug2issue(slug) {
+	return parseInt(slug.split("/")[0].split("_")[1])
+}
+let articles = await getCollection('articles')
+articles = articles.filter((x) => x.data.authors.map((y) => y.slug).includes(author.slug))
+	.sort((a, b) => (slug2issue(a) < slug2issue(b)) ? 1 : -1)
 ---
 
 <Wrapper title="Simple Wrapper">
 	<div class=`max-width font-serif text-center pt-12 pb-12 border-b-2 border-black` data-aos="fade-in">
-				<div class="text-2xl pb-4">{author.data.name}</div>
-				<Content />
+		<div class="text-2xl pb-4">{author.data.name}</div>
+		<Content />
 	</div>
 	{articles.map((i) => <OuterBlock article={i} overrideBlock=true />)} 
 

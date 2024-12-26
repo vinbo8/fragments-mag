@@ -1,6 +1,6 @@
 ---
 title: Critique of the Gotha Programme 
-date: 2024-06-03
+order: 1
 authors: 
     - karl-marx
 draft: false

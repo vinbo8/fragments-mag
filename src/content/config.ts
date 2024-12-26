@@ -10,7 +10,7 @@ const articleCollection = defineCollection({
 		expand: z.boolean().default(false),
 		block: z.number().default(1),
 		image: image().optional(),
-		date: z.date(),
+		order: z.number(),
 		time: z.string().time().optional(),
 	})
 })
@@ -32,11 +32,16 @@ const authorCollection = defineCollection({
 	})
 })
 
+const documentCollection = defineCollection({
+	type: 'content'
+})
+
 export const collections = {
 	// set this to 'articles' to apply it to the articles/ subfolder
 	'authors': authorCollection,
 	'articles': articleCollection,
 	'issues': issueCollection,
+	'documents': documentCollection,
 }
 
 /*

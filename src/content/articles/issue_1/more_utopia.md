@@ -1,12 +1,12 @@
 ---
-title: The International Communist Women's Day
-order: 1
-block: 4
+title: Thomas More and his Utopia
+order: 6
+block: 1
 draft: true
 authors: 
-    - clara-zetkin 
+    - karl-kautsky
 image: "./img/p1.jpg"
-abstract: Storms of enthusiasm greeted the motion of our Bulgarian comrades and the resolution of the Second International Conference of Communist Women at Moscow.
+abstract: Thomas More and his Utopia was first published in English in 1927 by AC Black translated from Thomas More und seine Utopie by Henry James Stenning. It was republished as a facsimile by Lawrence and Wishart in 1979 when out of copyright.
 ---
 Source: International Press Correspondence, Vol. 2 No. 18, 8 March 1922, pp. 129–130.
 Transcription & HTML Markup: Einde O’Callaghan for the Marxists’ Internet Archive.
