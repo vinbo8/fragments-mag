@@ -45,7 +45,7 @@ articles = articles.sort((a, b) => a.data.order < b.data.order ? -1 : 1);
 
 	<div class="bg-white">
 		<div class="max-width flex flex-row py-4 flex-wrap justify-around items-stretch">
-			{articles.map((i) => <OuterBlock article={i} colour={issue.data.colour} />)}
+			{articles.map((i) => <OuterBlock article={i} />)}
 		</div>
 	</div>
 </Wrapper>
