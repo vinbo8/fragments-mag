@@ -10,10 +10,10 @@
 	const authors = await getEntries(article.data.authors)
 	// let width = article.data.expand ? "w-6/12" : "w-3/12"
 	let width = {1: "w-3/12", 2: "w-6/12", 3: "w-9/12", 4: "w-12/12"}[article.data.block]
-	// if (overrideBlock) {
-	// 	width = "w-12/12"
-	// 	article.data.block = 4
-	// }
+	if (overrideBlock === true) {
+		width = "w-12/12"
+		article.data.block = 4
+	}
 
 	let f = ""
 	let image_margin = "mb-4"
