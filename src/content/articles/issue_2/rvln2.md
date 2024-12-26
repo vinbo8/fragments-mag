@@ -6,6 +6,7 @@ authors:
     - friedrich-engels
 image: "./img/p3.png"
 draft: false
+block: 1
 abstract: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
 ---	
 The second condition of the gradual realisation of socialism is according to Bernstein, the evolution of the State in society. It has become a commonplace to say that the present State is a class State. This, too, like referring to capitalist society, should not be understood in a rigorous absolute manner, but dialectically.

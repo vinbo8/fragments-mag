@@ -4,6 +4,7 @@ order: 2
 authors: 
     - rosa-luxemburg
 draft: false
+block: 1
 image: "./img/wide.png"
 abstract: The second condition of the gradual realisation of socialism is according to Bernstein, the evolution of the State in society. 
 ---	
