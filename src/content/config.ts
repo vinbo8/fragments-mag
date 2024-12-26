@@ -8,7 +8,7 @@ const articleCollection = defineCollection({
 		draft: z.boolean(),
 		abstract: z.string(),
 		expand: z.boolean().default(false),
-		block: z.number().default(1),
+		block: z.number(),
 		image: image().optional(),
 		order: z.number(),
 		time: z.string().time().optional(),
