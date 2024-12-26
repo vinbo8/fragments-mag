@@ -26,7 +26,7 @@ const authors = await getEntries(article.data.authors)
 		<div class="max-width flex flex-col font-sans text-5xl text-left px-20 space-y-1">
 			<span class="">{article.data.title}</span><br>
 			<span class="text-3xl"><AuthorList authors={authors} /></span><br>
-			<span class="text-base">{article.data.date.toLocaleDateString('en-GB', {day: 'numeric', month: 'long', year: 'numeric'})}</span>
+			<!-- <span class="text-base">{article.data.date.toLocaleDateString('en-GB', {day: 'numeric', month: 'long', year: 'numeric'})}</span> -->
 		</div>
 	</div>
 	<hr class="my-4 border-transparent">

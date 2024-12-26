@@ -20,11 +20,12 @@ const { author } = Astro.props
 const { Content } = await author.render()
 // const articles = (await getCollection('articles'))
 function slug2issue(slug) {
+	console.log(slug);
 	return parseInt(slug.split("/")[0].split("_")[1])
 }
 let articles = await getCollection('articles')
 articles = articles.filter((x) => x.data.authors.map((y) => y.slug).includes(author.slug))
-	.sort((a, b) => (slug2issue(a) < slug2issue(b)) ? 1 : -1)
+	.sort((a, b) => (slug2issue(a.slug) < slug2issue(b.slug)) ? 1 : -1)
 ---
 
 <Wrapper title="Simple Wrapper">
