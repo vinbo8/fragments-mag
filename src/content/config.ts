@@ -32,16 +32,11 @@ const authorCollection = defineCollection({
 	})
 })
 
-const documentCollection = defineCollection({
-	type: 'content'
-})
-
 export const collections = {
 	// set this to 'articles' to apply it to the articles/ subfolder
 	'authors': authorCollection,
 	'articles': articleCollection,
 	'issues': issueCollection,
-	'documents': documentCollection,
 }
 
 /*

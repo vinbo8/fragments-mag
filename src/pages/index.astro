@@ -9,17 +9,10 @@ const issues = (await getCollection('issues'))
 ---
 
 <Wrapper title="post-machina">	
-	<!-- <div class="bg-white"> -->
 	<div class="flex flex-row flex-wrap justify-around items-stretch">
 		{issues.map((i) => <IssueBlock issue={i} />)}
 
-			<!-- <span class="font-sans text-5xl text-center mb-10">{frontmatter.title}</span> -->
-		<div class="font-serif text-base leading-normal prose prose-h1:text-4xl prose-p:text-lg max-width py-24 !max-w-max">
-			<Content />
-		</div>
-		<!-- <hr class="mt-4"> -->
 	</div>
-	<!-- </div> -->
 
 
 </Wrapper>

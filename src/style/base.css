@@ -16,7 +16,7 @@
     @apply text-black group-hover:text-white hover:text-p-red transition duration-300;
   }
   .max-width {
-    /* @apply max-w-7xl mx-auto */
-    @apply px-16
+    @apply max-w-7xl mx-auto
+    /* @apply px-16 */
   }
 }
