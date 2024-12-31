@@ -19,4 +19,21 @@
     @apply max-w-7xl mx-auto
     /* @apply px-16 */
   }
+
+  .hide-nav {
+    max-height: 0;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-bottom: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease-in;
+  }
+
+  .show-nav {
+    max-height: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    overflow: hidden;
+    transition: max-height 0.15s ease-in;
+  }
 }

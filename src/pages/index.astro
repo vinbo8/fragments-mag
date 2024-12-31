@@ -5,7 +5,9 @@ import Wrapper from "@components/Wrapper";
 import IssueBlock from "@components/IssueBlock";
 import {Content} from "../content/documents/about.md";
 
-const issues = (await getCollection('issues'))
+let issues = (await getCollection('issues'))
+issues = issues.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+console.log(issues);
 ---
 
 <Wrapper title="post-machina">	

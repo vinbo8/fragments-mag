@@ -3,17 +3,25 @@
 	import { Debug } from 'astro:components';
 	import { getEntry, getEntries } from 'astro:content';
 	import AuthorList from "@components/AuthorList"
-	const { article, colour, overrideBlock = false } = Astro.props
+	const { article, colour, mode = "default"} = Astro.props
 	var date = article.data.date
 
 	// const datestring = `${date.getDate()} ${date.toLocaleDateString(undefined, {month: 'long'})} ${date.getFullYear()}`
 	const authors = await getEntries(article.data.authors)
 	// let width = article.data.expand ? "w-6/12" : "w-3/12"
-	let width = {1: "w-3/12", 2: "w-6/12", 3: "w-9/12", 4: "w-12/12"}[article.data.block]
-	if (overrideBlock === true) {
-		width = "w-12/12"
+
+	let width = "";
+	if (mode === "expand") {
 		article.data.block = 4
 	}
+
+	if (mode === "contract") {
+		article.data.block = 0
+
+	}
+
+	console.log(mode === "contract");
+	width = {1: "w-3/12", 2: "w-6/12", 3: "w-9/12", 4: "w-12/12", 0: "w-4/12"}[article.data.block]
 
 	let f = ""
 	let image_margin = "mb-4"
@@ -31,10 +39,13 @@
 		hsize += " sm:text-4xl"
 		tsize += " sm:text-lg"
 	}
+	if (article.data.block == 2) {
+		hsize += " sm:text-4xl"
+	}
 	// const authors = article.data.authors.split(",").map(s => s.trim())
 ---
 
-<div class=`flex flex-col py-16 px-12 min-w-72 group border-b-2 ${width}` style={`border-color: ${colour}`} data-aos="fade-in">
+<div class=`flex flex-col py-16 px-12 min-w-72 group border-b-2 border-black ${width}` style={`border-color: ${colour}`} data-aos="fade-in">
 	<!-- <hr class="border-black border-b-0 mb-4"> -->
 	<div class={f}>
 		<Image src={article.data.image} alt="" class=`${image_width} ${image_margin} object-contain max-h-64` />
@@ -43,7 +54,7 @@
 			<!-- <hr class="border-black border-b-0 mb-4"> -->
 			<div class=`font-serif ${hsize} ${align}`><a class="hover:text-p-red" href={`${import.meta.env.BASE_URL}/${article.slug}`}>{article.data.title}</a></div>
 			<div class=`mb-6 ${align} text-lg align-middle uppercase `><AuthorList authors={authors} /></div>
-			<div class=`font-serif ${tsize} text-black ${align}`>{article.data.abstract}</div>
+			{mode != 'contract' && <div class=`font-serif ${tsize} text-black ${align}`>{article.data.abstract}</div>}
 			<!-- <hr class="border-black border-b-0"> -->
 		</div>
 	</div>

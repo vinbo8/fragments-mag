@@ -21,7 +21,9 @@
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^6.0.1",
+    "@fontsource/adamina": "^5.1.1",
     "@fontsource/alegreya": "^5.0.13",
+    "@fontsource/alice": "^5.1.1",
     "@fontsource/barlow-semi-condensed": "^5.0.20",
     "@fontsource/bitter": "^5.0.18",
     "@fontsource/cabin": "^5.0.18",
@@ -32,6 +34,7 @@
     "@fontsource/libre-baskerville": "^5.0.13",
     "@fontsource/merriweather": "^5.0.13",
     "@fontsource/noto-serif-sc": "^5.0.13",
+    "@fontsource/roboto-serif": "^5.1.2",
     "@fontsource/roboto-slab": "^5.0.20",
     "@fontsource/twinkle-star": "^5.0.20",
     "@fontsource/work-sans": "^5.0.18",

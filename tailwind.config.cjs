@@ -5,9 +5,9 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
+				/* vesper libre; alegeraya */
 				serif: ['Vesper Libre', ...defaultTheme.fontFamily.serif],
 				sans: ['Barlow Semi Condensed', ...defaultTheme.fontFamily.sans],
-				hargle: ['IBM Plex Sans Condensed'],
 			},
 			colors: {
 				'p-red': 

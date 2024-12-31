@@ -21,6 +21,7 @@ const issueCollection = defineCollection({
 		title: z.string(),
 		draft: z.boolean(),
 		image: image(),
+		date: z.date(),
 		colour: z.string(),
 	})
 })

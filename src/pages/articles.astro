@@ -2,15 +2,15 @@
 // import { published } from "@data/post"
 import { getCollection, getEntry } from "astro:content";
 import Wrapper from "@components/Wrapper";
+import Image from "astro/components/Image.astro";
 import OuterBlock from "@components/OuterBlock";
 
-const articles = (await getCollection('articles')).sort((a, b) => (a.data.date < b.data.date) ? 1 : -1) 
+let articles = await getCollection('articles')
+articles = articles.sort((a, b) => a.data.order < b.data.order ? -1 : 1);
 ---
 
 <Wrapper title="post-machina">	
-	<div class="bg-white">
-		<div class="max-width flex flex-row py-4 flex-wrap justify-around items-stretch">
-			{articles.map((i) => <OuterBlock article={i} />)}
-		</div>
+	<div class="max-width flex flex-row flex-wrap justify-around items-stretch">
+		{articles.map((i) => <OuterBlock article={i} mode="contract" />)} 
 	</div>
 </Wrapper>

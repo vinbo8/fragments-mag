@@ -2,6 +2,9 @@
 	import { Image } from 'astro:assets';
 	const { issue } = Astro.props
 	const { Content } = await issue.render()
+
+	const dateOptions = {year: 'numeric', month: 'long'};
+	const date = issue.data.date.toLocaleDateString('en-GB', dateOptions);
 ---
 
 
@@ -9,7 +12,8 @@
 <div class=`max-width py-24 flex flex-col items-center text-center md:flex-row md:text-left` data-aos="fade-in">
 	<Image src={issue.data.image} alt="" class="min-w-64 px-4 w-3/12 object-contain mb-8 md:mb-0 md:mr-8" />
 	<div class="w-9/12 my-auto font-serif">
-		<div class="mb-4"><a class="hover:text-p-red text-4xl" href={`${import.meta.env.BASE_URL}/${issue.slug}`}>{issue.data.title}</a></div>
+		<div class="mb"><a class="hover:text-p-red text-4xl" href={`${import.meta.env.BASE_URL}/${issue.slug}`}>{issue.data.title}</a></div>
+		<div class="mb-4 font-sans uppercase text-l">{date}</div>
 		<div class="text-xl"><Content /></div>
 	</div>
 </div>
