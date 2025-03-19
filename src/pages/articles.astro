@@ -2,7 +2,7 @@
 // import { published } from "@data/post"
 import { getCollection, getEntry } from "astro:content";
 import Wrapper from "@components/Wrapper";
-import Image from "astro/components/Image.astro";
+import { Image } from "astro:assets"
 import OuterBlock from "@components/OuterBlock";
 
 let articles = await getCollection('articles')
