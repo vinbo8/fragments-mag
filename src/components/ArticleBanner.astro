@@ -1,0 +1,27 @@
+---
+import Image from "astro/components/Image.astro"
+import AuthorList from "./AuthorList.astro";
+import { getEntries } from "astro:content";
+
+const { entity } = Astro.props;
+const { Content } = await entity.render();
+
+let authors = null;
+if (entity.data.authors) {
+	authors = await getEntries(entity.data.authors)
+}
+
+if (entity.data.colour === null) {
+	entity.data.colour = '#ffffff'
+}
+---
+
+<!-- <Image src={entity.data.image} alt="" class="block lg:hidden mb-8 max-h-72 object-contain" /> -->
+<!-- <div class="border-b-2 border-black" style={`background-color: ${entity.data.colour}`}>	 -->
+<div class=`flex flex-row items-center pt-16 w-full gap-x-12` data-aos="fade-in">
+	<div class="text-center lg:text-left max-w-2xl flex flex-col">
+		<div class="text-5xl lg:text-7xl font-bold mb-2"><a class="hover:text-p-red" href={`${import.meta.env.BASE_URL}/${entity.slug}`}>{entity.data.title}</a></div>
+		<div class="font-serif text-3xl lg:text-4xl italic mb-6">{entity.data.abstract ? entity.data.abstract:<Content />}</div>
+		{authors && <div class="font-serif text-xl lg:text-2xl uppercase"><AuthorList authors={authors} /><br></div>}
+	</div>
+</div>

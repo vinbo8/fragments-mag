@@ -28,19 +28,19 @@
 	let image_width = ""
 	let text_width = ""
 	let align = "text-left"
-	let hsize = "text-2xl"
-	let tsize = "text-base"
+	let hsize = "text-3xl"
+	let tsize = "text-lg"
 	if (article.data.block >= 3) {
 		image_margin += " sm:mr-4"
 		image_width += " sm:w-4/12"
 		text_width += " sm:w-8/12 sm:mx-12"
 		f += " sm:flex sm:flex-row"
 		align += " sm:text-center"
-		hsize += " sm:text-4xl"
-		tsize += " sm:text-lg"
+		hsize += " sm:text-5xl"
+		tsize += " sm:text-3xl"
 	}
 	if (article.data.block == 2) {
-		hsize += " sm:text-4xl"
+		hsize += " sm:text-5xl"
 	}
 	// const authors = article.data.authors.split(",").map(s => s.trim())
 ---
@@ -52,9 +52,9 @@
 		<!-- <Debug block={article.data}/> -->
 		<div class=`my-auto ${text_width}`>
 			<!-- <hr class="border-black border-b-0 mb-4"> -->
-			<div class=`font-serif ${hsize} ${align}`><a class="hover:text-p-red" href={`${import.meta.env.BASE_URL}/${article.slug}`}>{article.data.title}</a></div>
-			<div class=`mb-6 ${align} text-lg align-middle uppercase `><AuthorList authors={authors} /></div>
-			{mode != 'contract' && <div class=`font-serif ${tsize} text-black ${align}`>{article.data.abstract}</div>}
+			<div class=`font-sans font-bold ${hsize} ${align} mb-2`><a class="hover:text-p-red" href={`${import.meta.env.BASE_URL}/${article.slug}`}>{article.data.title}</a></div>
+			{mode != 'contract' && <div class=`mb-6 font-serif italic ${tsize} text-black ${align}`>{article.data.abstract}</div>}
+			<div class=`mb-6 ${align} font-serif text-lg align-middle uppercase `><AuthorList authors={authors} /></div>
 			<!-- <hr class="border-black border-b-0"> -->
 		</div>
 	</div>

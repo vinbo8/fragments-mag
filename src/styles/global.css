@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities;
+ */
+/* @layer base {
+  a {
+    @apply text-p-blue hover:text-p-red transition duration-300;
+  }
+} */
+
+@plugin "@tailwindcss/typography";
+
+@theme {
+    --font-sans: 'Source Sans Pro', sans-serif;
+    --font-serif: 'Hoefler Text', 'Material', serif;
+    --leading-body: 24pt;
+    --text-body: 18pt;
+
+    --color-p-red-light: #D98E73;
+    --color-p-red: #d9583b;
+    --color-p-red-dark: #D94423;
+    --color-p-cream: #FFFCEB;
+    --color-p-blue: #3B3F59;
+}
+
+@layer components {
+  .default-hyper {
+    @apply text-black hover:text-p-red transition duration-300;
+  }
+  .invert-hyper {
+    @apply text-black group-hover:text-white hover:text-p-red transition duration-300;
+  }
+  .max-width {
+    @apply max-w-7xl mx-auto
+    /* @apply px-16 */
+  }
+
+  .hide-nav {
+    max-height: 0;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-bottom: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease-in;
+  }
+
+  .show-nav {
+    max-height: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    overflow: hidden;
+    transition: max-height 0.15s ease-in;
+  }
+}
+
+/* Register your custom font family and tell the browser where to find it. */
+@font-face {
+	font-family: 'Hoefler Text';
+  src: url(../../public/fonts/HoeflerText-Regular.ttf);
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Hoefler Text';
+  src: url(../../public/fonts/HoeflerText-Black.ttf);
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Hoefler Text';
+  src: url(../../public/fonts/HoeflerText-Italic.ttf);
+	font-weight: normal;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'Hoefler Text';
+  src: url(../../public/fonts/HoeflerText-BlackItalic.ttf);
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Material';
+  src: url(../../public/fonts/material-icons-latin-400-normal.ttf);
+	font-weight: normal;
+	font-style: normal;
+}
+

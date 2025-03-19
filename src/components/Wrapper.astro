@@ -14,12 +14,17 @@
 	import '@fontsource/work-sans'
 	import '@fontsource/ibm-plex-sans-condensed'
 
+	import '@fontsource/source-sans-pro/400.css'
+	import '@fontsource/source-sans-pro/700.css'
+	import '@fontsource/source-sans-pro/900.css'
+
 	import 'aos/dist/aos.css'; 
 
 	import Top from "@components/Top";
-	import "../style/base.css"
+  	import '../styles/global.css'
+	// import "../style/base.css"
 
-	const {title} = Astro.props;
+	const {title, expand} = Astro.props;
 ---
 <html lang="en">
 <head>
@@ -29,7 +34,7 @@
 </head>
 <body class="selection:bg-p-red-dark selection:text-white">	
 	<div>
-		<Top />
+		<Top expand={expand} />
 	</div>
 	<div id="content">
 		<slot />

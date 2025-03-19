@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import Image from "astro/components/Image.astro";
+import Banner from "@components/Banner";
 import Wrapper from "@components/Wrapper";
 import OuterBlock from "@components/OuterBlock";
 
@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 }
 
 const { issue } = Astro.props
-const { Content } = await issue.render()
+// const { Content } = await issue.render()
 let articles = await getCollection('articles')
 articles = articles.filter((a) => a.slug.split("/")[0].split("_")[1] == issue.slug);
 articles = articles.sort((a, b) => a.data.order < b.data.order ? -1 : 1);
@@ -26,16 +26,7 @@ articles = articles.sort((a, b) => a.data.order < b.data.order ? -1 : 1);
 
 
 <Wrapper title="post-machina">
-	<div class="border-b-2 border-black" style={`background-color: ${issue.data.colour}`}>	
-	<div class=`flex flex-col items-center max-width py-16` data-aos="fade-in">
-		<Image src={issue.data.image} alt="" class="mb-8 sm:mb-8 w-min max-h-72 object-contain" />
-		<div class=`font-serif text-center`>
-			<div class="text-4xl mb-4"><a class="hover:text-p-red" href={`${import.meta.env.BASE_URL}/${issue.slug}`}>{issue.data.title}</a></div>
-			<div class="text-xl"><Content /></div>
-		</div>
-	</div>
-	
-	</div>	
+	<Banner entity={issue} />
 	<div class="max-width flex flex-row flex-wrap justify-around items-stretch">
 		{articles.map((i) => <OuterBlock article={i} />)}
 	</div>

@@ -6,7 +6,7 @@ draft: true
 authors: 
     - clara-zetkin 
 image: "./img/p1.jpg"
-abstract: Storms of enthusiasm greeted the motion of our Bulgarian comrades and the resolution of the Second International Conference of Communist Women at Moscow.
+abstract: Storms of enthusiasm greeted the motion.
 ---
 Source: International Press Correspondence, Vol. 2 No. 18, 8 March 1922, pp. 129–130.
 Transcription & HTML Markup: Einde O’Callaghan for the Marxists’ Internet Archive.

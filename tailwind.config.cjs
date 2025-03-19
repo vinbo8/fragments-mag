@@ -6,8 +6,8 @@ module.exports = {
 		extend: {
 			fontFamily: {
 				/* vesper libre; alegeraya */
-				serif: ['Vesper Libre', ...defaultTheme.fontFamily.serif],
-				sans: ['Barlow Semi Condensed', ...defaultTheme.fontFamily.sans],
+				serif: ['Hoefler Text', 'Material', ...defaultTheme.fontFamily.serif],
+				sans: ['Source Sans Pro', ...defaultTheme.fontFamily.sans],
 			},
 			colors: {
 				'p-red': 
