@@ -14,6 +14,7 @@
 
 @theme {
     --font-sans: 'Source Sans Pro', sans-serif;
+    --font-body: 'Barlow Semi Condensed', sans-serif;
     --font-serif: 'Hoefler Text', 'Material', serif;
     --leading-body: 24pt;
     --text-body: 18pt;
@@ -39,8 +40,8 @@
 
   .text-block {
     @apply prose py-12 mx-auto sm:!max-w-4xl 2xl:!max-w-6xl 
-    prose-p:tracking-tight prose-p:leading-body prose-p:text-black 
-    prose-p:font-sans
+    prose-p:tracking-normal prose-p:leading-body prose-p:text-black 
+    prose-p:font-body
     sm:prose-p:text-body prose-headings:py-2
   }
 

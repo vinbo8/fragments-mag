@@ -16,10 +16,14 @@ let bot_menu = expand ? "flex md:hidden" : "flex"
 	<div class="flex flex-col items-center py-4 sm:max-width px-4 h-full w-full">
 		<div class="flex flex-col w-full text-4xl relative items-center">
 			<Image src={logoImage} alt="" class=`${width} py-4 px-8` />		
-			<ul class=`${top_menu} md:text-base lg:text-2xl ml-auto space-x-20 absolute bottom-0 right-0`>
+
+			<ul class=`${top_menu} md:text-xl lg:text-3xl ml-auto space-x-20 absolute bottom-0 right-1/32`>
 				<li><a href=`${base_url}/articles` class="hover:text-p-red">Articles</a></li>
+				<li><a href=`${base_url}/issues` class="hover:text-p-red">Issues</a></li>
+				<li><a href=`${base_url}/contact` class="hover:text-p-red">Contact us</a></li>
 				<li><a href=`${base_url}/about` class="hover:text-p-red">About</a></li>
 			</ul>
+
 		</div>
 
 		<ul class=`${bot_menu} md:text-2xl mx-auto space-x-20`>
