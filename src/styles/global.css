@@ -14,10 +14,11 @@
 
 @theme {
     --font-sans: 'Source Sans Pro', sans-serif;
-    --font-body: 'Barlow Semi Condensed', sans-serif;
+    --font-body: 'Metropolis', sans-serif;
     --font-serif: 'Hoefler Text', 'Material', serif;
     --leading-body: 24pt;
-    --text-body: 18pt;
+    --text-body: 14pt;
+    
 
     --color-p-red-light: #D98E73;
     --color-p-red: #d9583b;
@@ -38,20 +39,21 @@
     /* @apply px-16 */
   }
 
+
   .text-block {
-    @apply prose py-12 mx-auto sm:!max-w-4xl 2xl:!max-w-6xl 
-    prose-p:tracking-normal prose-p:leading-body prose-p:text-black 
-    prose-p:font-body
+    @apply mx-auto px-8 !max-w-4xl
+    prose-p:tracking-normal prose-p:leading-normal prose-p:text-black 
+    prose-p:font-body prose-p:my-4
     sm:prose-p:text-body prose-headings:py-2
   }
 
   .hide-nav {
-    max-height: 0;
+    max-height: 0%;
     padding-top: 0px;
     padding-bottom: 0px;
     border-bottom: 0;
     overflow: hidden;
-    transition: opacity 0.5s ease-in;
+    transition: all 0.15s ease-out allow-discrete;
   }
 
   .show-nav {
@@ -59,7 +61,18 @@
     padding-top: 20px;
     padding-bottom: 20px;
     overflow: hidden;
-    transition: max-height 0.15s ease-in;
+    /* transition: all max-height 1.5s ease-out; */
+    transition: all 0.15s ease-in allow-discrete;
+  }
+
+  .testpost {
+    height: 100%;
+    position: fixed;
+    overflow: hidden;
+  }
+
+  .resize-animate {
+    transition: all 0.15s ease-in allow-discrete;
   }
 }
 

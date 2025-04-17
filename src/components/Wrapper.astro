@@ -13,6 +13,9 @@
 	import '@fontsource/alegreya'
 	import '@fontsource/work-sans'
 	import '@fontsource/ibm-plex-sans-condensed'
+	import '@fontsource/montserrat'
+	import '@fontsource/metropolis'
+	import '@fontsource/lato'
 
 	import '@fontsource/source-sans-pro/400.css'
 	import '@fontsource/source-sans-pro/700.css'
@@ -20,11 +23,13 @@
 
 	import 'aos/dist/aos.css'; 
 
-	import Top from "@components/Top";
+	import BigHeader from "@components/BigHeader";
+	import SmallHeader from "@components/SmallHeader";
   	import '../styles/global.css'
 	// import "../style/base.css"
 
 	const {title, expand} = Astro.props;
+	const Header = expand ? BigHeader : SmallHeader
 ---
 <html lang="en">
 <head>
@@ -33,10 +38,8 @@
 	<title>{title}</title>
 </head>
 <body class="selection:bg-p-red-dark selection:text-white">	
-	<div>
-		<Top expand={expand} />
-	</div>
-	<div id="content">
+	<Header />
+	<div class="" id="content">
 		<slot />
 	</div>
 	<script>

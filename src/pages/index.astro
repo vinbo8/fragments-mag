@@ -10,10 +10,9 @@ issues = issues.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 console.log(issues);
 ---
 
-<Wrapper title="post-machina">	
+<Wrapper title="post-machina" expand={true}>	
 	<div class="flex flex-row flex-wrap justify-around items-stretch">
 		{issues.map((i) => <IssueBlock issue={i} />)}
-
 	</div>
 
 
