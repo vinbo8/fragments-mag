@@ -14,7 +14,7 @@
 
 @theme {
     --font-sans: 'Source Sans Pro', sans-serif;
-    --font-body: 'Metropolis', sans-serif;
+    --font-body: 'Montserrat', serif;
     --font-serif: 'Hoefler Text', 'Material', serif;
     --leading-body: 24pt;
     --text-body: 14pt;
@@ -65,7 +65,7 @@
     transition: all 0.15s ease-in allow-discrete;
   }
 
-  .testpost {
+  .fix-content {
     height: 100%;
     position: fixed;
     overflow: hidden;

@@ -2,6 +2,7 @@
 
 import { Image } from "astro:assets"
 import logoImage from "../../public/img/logo.svg"
+import { Debug } from "astro:components";
 const base_url = import.meta.env.BASE_URL
 
 const { expand = true } = Astro.props;
@@ -11,32 +12,54 @@ let top_menu = expand ? "hidden lg:flex" : "hidden"
 ---
 
 <script>
-	// JavaScript to toggle the mobile menu visibility	
-	const hamburger = document.getElementsByClassName('hamburger');
-	const mobileMenu = document.getElementById('mobile-menu');
-	const content = document.getElementById('content')
-	
-	Array.prototype.forEach.call(hamburger, function(b) {
-		console.log(b);
-		b.addEventListener('click', () => {
-		mobileMenu.classList.toggle('hide-nav');
-		mobileMenu.classList.toggle('show-nav');
-		content.classList.toggle("testpost");
-		}
-	)});
-	
+	const pageContent = document.querySelector('#page-content') as HTMLElement;
+	const header = document.querySelector('#header') as HTMLElement;
+	const banner = document.querySelector('#banner-img') as HTMLElement;
+	const hamburger = document.querySelector('#hamburger') as HTMLElement;
+	const smallMenu = document.querySelector('#sm-menu') as HTMLElement;
+	const largeMenu = document.querySelector('#lg-menu') as HTMLElement;
 
+	function switchMenuType() {
+		pageContent.classList.toggle('fix-content');
+		smallMenu.classList.toggle('hide-nav');
+		smallMenu.classList.toggle('show-nav');
+	}
+
+	function updateStickyOffset() {
+		const height = header.offsetHeight;
+		const viewportHeight = window.innerHeight;
+
+		if (largeMenu.checkVisibility()) {
+			header.style.top = `-${height / 2}px`;
+			header.style.top = `-${height - 128}px`;
+			if(smallMenu.classList.contains('show-nav')) {
+				switchMenuType();
+			}
+		}
+		else {
+			smallMenu.style.top = `${height}px`;
+			smallMenu.style.height = `${viewportHeight - height}px`;
+		}
+	}
+	
+	updateStickyOffset();
+
+	hamburger.addEventListener('click', switchMenuType);
+	window.addEventListener('resize', updateStickyOffset);
+
+	const observer = new ResizeObserver(updateStickyOffset);
+	observer.observe(document.querySelector('#header'));
 </script>
 
 <!-- includes mobile menu -->
-<header class=`bg-white flex flex-col items-center h-full w-full font-serif px-8 lg:px-0 py-6 border-b-1 lg:border-0`>
+<header id="header" class="lg:sticky lg:top-0 bg-white flex flex-col items-center h-full w-full font-serif px-8 lg:px-0 py-6 border-b-1">
 	<!-- just the header -->
 	<div class="flex flex-row lg:flex-col w-full text-4xl items-center lg:h-max">
 		<div class=`${width} max-h-[64px] lg:max-h-full`>
-			<Image src={logoImage} alt="" class="w-max max-h-[64px] lg:max-h-max" />		
+			<Image src={logoImage} alt="" id="banner" class="w-max max-h-[64px] lg:max-h-max" />		
 		</div>
 
-		<ul class=`resize-animate ${top_menu} ml-auto space-x-20 relative bottom-4 right-[8%]
+		<ul id="lg-menu" class=`resize-animate ${top_menu} ml-auto space-x-20 relative bottom-4 right-[8%]
 					lg:text-2xl xl:text-3xl`>
 
 			<li><a href=`${base_url}/articles` class="hover:text-p-red">Articles</a></li>
@@ -47,7 +70,7 @@ let top_menu = expand ? "hidden lg:flex" : "hidden"
 		</ul>
 
 		<div class=`w-1/4 lg:hidden text-right`>
-			<button class="hamburger" onclick="toggleMenu()">
+			<button id="hamburger" onclick="toggleMenu()">
 				<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
 				</svg>
@@ -55,8 +78,7 @@ let top_menu = expand ? "hidden lg:flex" : "hidden"
 		</div>
 
 	</div>
-	<div id="mobile-menu" class="md:text-2xl flex flex-col border-black hide-nav w-full bg-white z-50 fixed items-center
-				h-[calc(100dvh-(64px+var(--spacing)*6))]  top-[calc(64px+var(--spacing)*6)]">
+	<div id="sm-menu" class="text-2xl flex flex-col border-black hide-nav w-full bg-red-50 z-50 fixed items-center">
 		<div class="py-4"><a href="#" class="hover:text-gray-400">Home</a></div>
 		<div class="py-4"><a href="#" class="hover:text-gray-400">About</a></div>
 		<div class="py-4"><a href="#" class="hover:text-gray-400">Services</a></div>
@@ -69,5 +91,6 @@ let top_menu = expand ? "hidden lg:flex" : "hidden"
 
 	<!-- <nav class="flex items-center justify-end font-serif text-base grow space-x-20">
 		<span><a class="text-black" href=`${import.meta.env.BASE_URL}/about`>About</a></span>
-	</nav> -->
-<!-- </div> -->
+	</nav> 				top-[calc(64px+var(--spacing)*6*2)]"
+
+ </div> -->
