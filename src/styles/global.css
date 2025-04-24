@@ -14,7 +14,7 @@
 
 @theme {
     --font-sans: 'Source Sans Pro', sans-serif;
-    --font-body: 'Montserrat', serif;
+    --font-body: 'Source Sans Pro', serif;
     --font-serif: 'Hoefler Text', 'Material', serif;
     --leading-body: 24pt;
     --text-body: 14pt;
@@ -23,16 +23,15 @@
     --color-p-red-light: #D98E73;
     --color-p-red: #d9583b;
     --color-p-red-dark: #D94423;
-    --color-p-cream: #FFFCEB;
-    --color-p-blue: #3B3F59;
+    --color-p-blue: #3137FD;
 }
 
 @layer components {
   .default-hyper {
-    @apply text-black hover:text-p-red transition duration-300;
+    @apply text-black hover:text-p-blue transition duration-300;
   }
   .invert-hyper {
-    @apply text-black group-hover:text-white hover:text-p-red transition duration-300;
+    @apply text-black group-hover:text-white hover:text-p-blue transition duration-300;
   }
   .max-width {
     @apply max-w-7xl mx-auto
@@ -41,8 +40,8 @@
 
 
   .text-block {
-    @apply mx-auto px-8 !max-w-4xl
-    prose-p:tracking-normal prose-p:leading-normal prose-p:text-black 
+    @apply mx-auto px-[6vw] !max-w-4xl
+    prose-p:tracking-normal prose-p:leading-relaxed prose-p:text-black 
     prose-p:font-body prose-p:my-4
     sm:prose-p:text-body prose-headings:py-2
   }
@@ -69,6 +68,10 @@
     height: 100%;
     position: fixed;
     overflow: hidden;
+  }
+
+  .quick-animate {
+    transition: all 0.05s ease-in allow-discrete;
   }
 
   .resize-animate {
@@ -108,4 +111,3 @@
 	font-weight: normal;
 	font-style: normal;
 }
-

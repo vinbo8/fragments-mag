@@ -14,10 +14,32 @@ let top_menu = expand ? "hidden lg:flex" : "hidden"
 <script>
 	const pageContent = document.querySelector('#page-content') as HTMLElement;
 	const header = document.querySelector('#header') as HTMLElement;
-	const banner = document.querySelector('#banner-img') as HTMLElement;
 	const hamburger = document.querySelector('#hamburger') as HTMLElement;
 	const smallMenu = document.querySelector('#sm-menu') as HTMLElement;
 	const largeMenu = document.querySelector('#lg-menu') as HTMLElement;
+	
+	// largeMenu.style.bottom = `${48}px`;		
+
+	function moveLargeMenu() {
+		const headerHeight = header.offsetHeight;
+		const headerWidth = header.offsetWidth;
+		const fontHeight = largeMenu.offsetHeight;
+		const padTop = parseInt(window.getComputedStyle(header)["padding-top"])
+		const padBot = parseInt(window.getComputedStyle(header)["padding-bottom"])
+		const imageHeight = headerHeight - (padTop + padBot); 
+		
+		const topLimit = padTop + (imageHeight * 0.9);
+		const botLimit = headerHeight - (64 / 2);
+		const midpoint = (headerHeight + window.scrollY) / 2;
+
+		let top = Math.max(topLimit, midpoint);
+		top = Math.min(top, botLimit);
+		top = top - (fontHeight / 2)
+		let right = headerWidth * 0.08;
+
+		largeMenu.style.top = `${top}px`
+		largeMenu.style.right = `${right}px`
+	}
 
 	function switchMenuType() {
 		pageContent.classList.toggle('fix-content');
@@ -26,40 +48,42 @@ let top_menu = expand ? "hidden lg:flex" : "hidden"
 	}
 
 	function updateStickyOffset() {
-		const height = header.offsetHeight;
 		const viewportHeight = window.innerHeight;
+		const headerHeight = header.offsetHeight;
 
-		if (largeMenu.checkVisibility()) {
-			header.style.top = `-${height / 2}px`;
-			header.style.top = `-${height - 128}px`;
+		if (largeMenu.offsetParent) {
+			header.style.top = `-${headerHeight - 64}px`;
 			if(smallMenu.classList.contains('show-nav')) {
 				switchMenuType();
 			}
 		}
 		else {
-			smallMenu.style.top = `${height}px`;
-			smallMenu.style.height = `${viewportHeight - height}px`;
+			smallMenu.style.top = `${headerHeight}px`;
+			smallMenu.style.height = `${viewportHeight - headerHeight}px`;
 		}
 	}
 	
+	moveLargeMenu();
 	updateStickyOffset();
 
 	hamburger.addEventListener('click', switchMenuType);
 	window.addEventListener('resize', updateStickyOffset);
+	window.addEventListener('resize', moveLargeMenu);
+	window.addEventListener('scroll', moveLargeMenu);
 
 	const observer = new ResizeObserver(updateStickyOffset);
 	observer.observe(document.querySelector('#header'));
 </script>
 
 <!-- includes mobile menu -->
-<header id="header" class="lg:sticky lg:top-0 bg-white flex flex-col items-center h-full w-full font-serif px-8 lg:px-0 py-6 border-b-1">
+<header id="header" class="sticky top-0 bg-white flex flex-col items-center h-full w-full font-serif px-[6vw] py-4 lg:pb-10 lg:py-0 lg:px-0 border-b-1">
 	<!-- just the header -->
-	<div class="flex flex-row lg:flex-col w-full text-4xl items-center lg:h-max">
-		<div class=`${width} max-h-[64px] lg:max-h-full`>
-			<Image src={logoImage} alt="" id="banner" class="w-max max-h-[64px] lg:max-h-max" />		
+	<div class="flex flex-row lg:flex-col w-full text-4xl items-center max-h-max">
+		<div class=`${width} max-h-[64px] lg:max-h-full flex justify-start`>
+			<Image src={logoImage} alt="" id="banner" class="h-auto w-auto max-h-[64px] lg:w-full lg:max-h-full" />		
 		</div>
 
-		<ul id="lg-menu" class=`resize-animate ${top_menu} ml-auto space-x-20 relative bottom-4 right-[8%]
+		<ul id="lg-menu" class=`quick-animate ${top_menu} ml-auto space-x-20 absolute top-0 right-0 
 					lg:text-2xl xl:text-3xl`>
 
 			<li><a href=`${base_url}/articles` class="hover:text-p-red">Articles</a></li>
@@ -92,5 +116,5 @@ let top_menu = expand ? "hidden lg:flex" : "hidden"
 	<!-- <nav class="flex items-center justify-end font-serif text-base grow space-x-20">
 		<span><a class="text-black" href=`${import.meta.env.BASE_URL}/about`>About</a></span>
 	</nav> 				top-[calc(64px+var(--spacing)*6*2)]"
-
+bottom-4 right-[8%]
  </div> -->
