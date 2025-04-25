@@ -6,7 +6,7 @@
  */
 @layer base {
   a {
-    @apply hover:text-p-blue transition duration-50;
+    @apply hover:text-p-blue-dark transition duration-50;
   }
 } 
 
@@ -24,6 +24,7 @@
     --color-p-red: #d9583b;
     --color-p-red-dark: #D94423;
     --color-p-blue: #3137FD;
+    --color-p-blue-dark: #035096;
 }
 
 @layer components {
