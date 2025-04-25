@@ -4,11 +4,11 @@
 @tailwind components;
 @tailwind utilities;
  */
-/* @layer base {
+@layer base {
   a {
-    @apply text-p-blue hover:text-p-red transition duration-300;
+    @apply hover:text-p-blue transition duration-50;
   }
-} */
+} 
 
 @plugin "@tailwindcss/typography";
 

@@ -52,7 +52,7 @@
 		<!-- <Debug block={article.data}/> -->
 		<div class=`my-auto ${text_width}`>
 			<!-- <hr class="border-black border-b-0 mb-4"> -->
-			<div class=`font-sans font-bold ${hsize} ${align} mb-2`><a class="hover:text-p-red" href={`${import.meta.env.BASE_URL}/${article.slug}`}>{article.data.title}</a></div>
+			<div class=`font-sans font-bold ${hsize} ${align} mb-2`><a href={`${import.meta.env.BASE_URL}/${article.slug}`}>{article.data.title}</a></div>
 			{mode != 'contract' && <div class=`mb-6 font-serif italic ${tsize} text-black ${align}`>{article.data.abstract}</div>}
 			<div class=`mb-6 ${align} font-serif text-lg align-middle uppercase `><AuthorList authors={authors} /></div>
 			<!-- <hr class="border-black border-b-0"> -->
