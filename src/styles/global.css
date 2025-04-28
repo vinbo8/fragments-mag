@@ -24,7 +24,7 @@
     --color-p-red: #d9583b;
     --color-p-red-dark: #D94423;
     --color-p-blue: #3137FD;
-    --color-p-blue-dark: #035096;
+    --color-p-blue-dark: #3137FD;
 }
 
 @layer components {
@@ -38,13 +38,20 @@
     @apply max-w-7xl mx-auto
     /* @apply px-16 */
   }
-
-
   .text-block {
-    @apply mx-auto px-[6vw] !max-w-4xl
+    @apply mx-auto px-[6vw] !max-w-7xl
     prose-p:tracking-normal prose-p:leading-relaxed prose-p:text-black 
     prose-p:font-body prose-p:my-4
     sm:prose-p:text-body prose-headings:py-2
+  }
+
+  .text-block-non-tw {
+    @apply mx-auto px-[6vw] !max-w-4xl
+    tracking-normal leading-relaxed font-body
+  }
+
+  .header-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
   }
 
   .hide-nav {

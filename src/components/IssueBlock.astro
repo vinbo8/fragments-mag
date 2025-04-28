@@ -10,10 +10,10 @@
 
 <div class="w-full" style={`background-color: ${issue.data.colour}`}>
 <div class=`max-width px-4 py-24 flex flex-col items-center text-center lg:flex-row lg:text-left` data-aos="fade-in">
-	<Image src={issue.data.image} alt="" class="max-w-xl w-9/12 min-w-8 lg:w-4/12 object-contain mb-8 lg:mb-0 lg:mr-8" />
-	<div class="w-8/12 my-auto">
-		<div class="mb-8 font-bold font-sans"><a class="hover:text-p-red text-4xl" href={`${import.meta.env.BASE_URL}/${issue.slug}`}>{issue.data.title}</a></div>
-		<div class="text-xl font-body"><Content /></div>
+	<Image class="max-w-xl w-9/12 min-w-8 lg:w-4/12 object-contain mb-8 lg:mb-0 lg:mr-8"  src={issue.data.image} alt="" />
+	<div class="px-[6vw] lg:px-0 lg:w-8/12">
+		<div class="mb-8 font-bold font-sans"><a class="text-4xl" href={`${import.meta.env.BASE_URL}/${issue.slug}`}>{issue.data.title}</a></div>
+		<div class="text-xl"><Content /></div>
 	</div>
 </div>
 </div>
