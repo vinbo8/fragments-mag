@@ -98,7 +98,7 @@ let top_menu = expand ? "hidden lg:flex" : "hidden"
 </script>
 
 <!-- includes mobile menu -->
-<header id="header" class="sticky top-0 bg-white flex flex-col items-center h-full w-full font-serif px-[6vw] py-[16px] lg:pb-10 lg:py-0 header-shadow">
+<header id="header" class="sticky top-0 bg-white flex flex-col items-center h-full w-full font-serif px-[4vw] py-[16px] lg:pb-10 lg:py-0 header-shadow">
 						   
 	<!-- just the header -->
 	<div class="flex flex-row lg:flex-col w-full text-4xl items-center max-h-max">
@@ -108,9 +108,9 @@ let top_menu = expand ? "hidden lg:flex" : "hidden"
 
 		<ul id="lg-menu" class=`${top_menu} invisible ml-auto space-x-20 absolute top-0 right-0 
 					lg:text-2xl xl:text-3xl`>
-			<li><a>Articles</a></li>
+			<li><a href=`${base_url}/comingsoon`>Articles</a></li>
 			<li><a href=`${base_url}`>Issues</a></li>
-			<li><a>Contact us</a></li>
+			<li><a href=`${base_url}/comingsoon`>Contact us</a></li>
 			<li><a href=`${base_url}/about`>About</a></li>
 
 		</ul>
@@ -125,9 +125,9 @@ let top_menu = expand ? "hidden lg:flex" : "hidden"
 
 	</div>
 	<div id="sm-menu" class="text-2xl flex flex-col border-black hide-nav w-full bg-white z-50 fixed items-center">
-		<div class="py-4"><a class="hover:text-gray-400">Articles</a></div>
+		<div class="py-4"><a href=`${base_url}/comingsoon` class="hover:text-gray-400">Articles</a></div>
 		<div class="py-4"><a href=`${base_url}` class="hover:text-gray-400">Issues</a></div>
-		<div class="py-4"><a class="hover:text-gray-400">Contact us</a></div>
+		<div class="py-4"><a href=`${base_url}/comingsoon` class="hover:text-gray-400">Contact us</a></div>
 		<div class="py-4"><a href=`${base_url}/about` class="hover:text-gray-400">About</a></div>
 	</div>
 </header>
