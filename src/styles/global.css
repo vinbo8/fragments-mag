@@ -42,8 +42,10 @@
     @apply mx-auto px-[6vw] !max-w-7xl
     prose-p:tracking-normal prose-p:leading-relaxed prose-p:text-black 
     prose-p:font-body prose-p:my-4
-    prose-headings:py-2 prose-headings:font-body
+    prose-headings:font-body
+    prose-headings:font-bold
     prose-p:text-body prose-h4:text-4xl
+    prose-h3:text-5xl lg:prose-h3:text-7xl
   }
 
   .text-block-non-tw {
@@ -54,6 +56,14 @@
   .header-shadow {
     box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
   }
+
+  .rotate-i::before {
+    font-family: var(--font-sans);
+    display: inline-block;
+    font-weight: normal;
+    font-size: 2em;
+    transform: rotate(15deg) translateY(10%) translateX(-30%);
+  }  
 
   .hide-nav {
     max-height: 0%;

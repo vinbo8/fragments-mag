@@ -1,0 +1,17 @@
+---
+// import { published } from "@data/post"
+
+import Wrapper from "@components/Wrapper";
+---
+
+<script>
+	const pageContent = document.querySelector('#page-content') as HTMLElement;
+	
+	function centreContent() {
+	}
+</script>
+
+<meta charset="utf-8">
+<Wrapper title="Disjunctions" expand={true}>
+	<div class="text-block text-center resize-animate py-[25vh]"><slot /></div>
+</Wrapper>

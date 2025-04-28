@@ -1,6 +1,6 @@
 ---
 title: Coming soon 
-layout: ../components/TextBlock.astro
+layout: ../components/ComingSoon.astro
 ---
 
-#### Coming soon
+### Coming soon
