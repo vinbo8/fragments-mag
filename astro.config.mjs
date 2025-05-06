@@ -19,7 +19,7 @@ export default defineConfig(
   },
 
   site: 'http://vinbo8.github.io/',
-  base: '/fragments-mag',
+  base: '/disjunctions',
 
   trailingSlash: 'never',
 
