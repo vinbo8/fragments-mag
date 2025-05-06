@@ -18,8 +18,8 @@ export default defineConfig(
     }
   },
 
-  site: 'http://vinbo8.github.io/',
-  base: '/disjunctions',
+  site: 'https://disjunctionsmag.com',
+  // base: '/disjunctions',
 
   trailingSlash: 'never',
 
