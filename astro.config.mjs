@@ -4,6 +4,9 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from '@tailwindcss/vite';
 
 
+import mdx from '@astrojs/mdx';
+
+
 // https://astro.build/config
 export default defineConfig(
 /** @type {import('astro').AstroUserConfig} */
@@ -19,6 +22,7 @@ export default defineConfig(
   },
 
   site: 'https://disjunctionsmag.com',
+
   // base: '/disjunctions',
 
   trailingSlash: 'never',
@@ -26,4 +30,6 @@ export default defineConfig(
   vite: {
     plugins: [tailwindcss()],
   },
+
+  integrations: [mdx()],
 });

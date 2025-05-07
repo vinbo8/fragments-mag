@@ -20,15 +20,12 @@ const { Content } = await article.render()
 ---
 
 <!-- <div class="text-center font-sans text-base basis-full leading-relaxed"> -->
-<Wrapper title={article.data.title} expand={false}>
+<Wrapper title={article.data.title} expand={true}>
 	<div class="flex flex-col mx-[10%] items-center">
 		<ArticleBanner entity={article} />
-		<Image src={article.data.image} alt="" class="my-8 sm:mb-12 w-min max-w-6/12 object-contain" />
-		<div class="flex flex-row w-full">
-			<div class="prose py-12 mx-auto sm:!max-w-4xl 2xl:!max-w-6xl
-				prose-p:tracking-tightx prose-p:leading-body prose-p:text-black 
-				prose-p:font-sans
-				sm:prose-p:text-body prose-headings:py-2"><Content />
+		<!-- <Image src={article.data.image} alt="" class="my-8 sm:mb-12 w-min max-w-6/12 object-contain" /> -->
+		<div class="flex flex-col items-center w-full">
+			<div class="prose text-block"><Content />
 			</div>
 		</div>
 	</div>

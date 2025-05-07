@@ -17,7 +17,6 @@
     --font-serif: 'Hoefler Text', 'Material', serif;
 
     --leading-body: 24pt;
-    --text-body: 14pt;
     
 
     --color-p-red-light: #D98E73;
@@ -39,13 +38,13 @@
     /* @apply px-16 */
   }
   .text-block {
-    @apply mx-auto px-[6vw] !max-w-7xl
-    prose-p:tracking-normal prose-p:leading-relaxed prose-p:text-black 
+    @apply mx-[6vw] max-w-3xl
+    prose-p:tracking-normal prose-p:leading-normal prose-p:text-black 
     prose-p:font-sans prose-p:my-4
     prose-headings:font-sans
     prose-headings:font-bold
-    prose-p:text-body prose-h4:text-4xl
-    prose-h3:text-5xl lg:prose-h3:text-7xl
+    prose-p:text-xl prose-h4:text-4xl
+    prose-h3:text-5xl lg:prose-h3:text-7xl prose-h3:my-8
   }
 
   .text-block-non-tw {

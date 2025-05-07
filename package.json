@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^6.0.1",
+    "@astrojs/mdx": "^4.2.6",
     "@fontsource/adamina": "^5.1.1",
     "@fontsource/alegreya": "^5.0.13",
     "@fontsource/alice": "^5.1.1",
