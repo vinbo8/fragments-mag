@@ -27,24 +27,24 @@
 }
 
 @layer components {
+  .issue_block_title {
+
+  }
+
   .default-hyper {
     @apply text-black hover:text-p-blue transition duration-300;
   }
   .invert-hyper {
     @apply text-black group-hover:text-white hover:text-p-blue transition duration-300;
   }
-  .max-width {
-    @apply max-w-7xl mx-auto
-    /* @apply px-16 */
-  }
   .text-block {
     @apply mx-[6vw] max-w-3xl
-    prose-p:tracking-normal prose-p:leading-normal prose-p:text-black 
+    prose-p:tracking-normal prose-p:leading-6 prose-p:text-black 
     prose-p:font-sans prose-p:my-4
     prose-headings:font-sans
     prose-headings:font-bold
     prose-p:text-xl prose-h4:text-4xl
-    prose-h3:text-5xl lg:prose-h3:text-7xl prose-h3:my-8
+    prose-h3:text-5xl lg:prose-h3:text-7xl prose-h3:my-8 prose-h3:font-serif
   }
 
   .text-block-non-tw {
@@ -55,14 +55,6 @@
   .header-shadow {
     box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
   }
-
-  .rotate-i::before {
-    font-family: var(--font-sans);
-    display: inline-block;
-    font-weight: normal;
-    font-size: 2em;
-    transform: rotate(15deg) translateY(10%) translateX(-30%);
-  }  
 
   .hide-nav {
     max-height: 0%;

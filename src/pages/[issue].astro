@@ -27,7 +27,7 @@ articles = articles.sort((a, b) => a.data.order < b.data.order ? -1 : 1);
 
 <Wrapper title="Disjunctions">
 	<Banner entity={issue} />
-	<div class="max-width flex flex-row flex-wrap justify-around items-stretch">
+	<div class="flex flex-row flex-wrap justify-around items-stretch">
 		{articles.map((i) => <OuterBlock article={i} />)}
 	</div>
 </Wrapper>
