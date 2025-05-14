@@ -13,7 +13,7 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-    --font-sans: 'Source Sans Pro', serif;
+    --font-sans: 'Source Sans 3', serif;
     --font-serif: 'Hoefler Text', 'Material', serif;
 
     --leading-body: 24pt;
@@ -28,7 +28,6 @@
 
 @layer components {
   .issue_block_title {
-
   }
 
   .default-hyper {

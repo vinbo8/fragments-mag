@@ -14,11 +14,11 @@
 
 
 <div class="w-full" style={`background-color: ${issue.data.colour}`}>
-<div class="flex flex-col lg:flex-row px-[6vw] mr-[15vw] py-24 items-center text-center lg:text-left" data-aos="fade-in">
+<div class="flex flex-col lg:flex-row mx-[6vw] max-w-[96rem] py-24 items-center lg:items-start text-center lg:text-left" data-aos="fade-in">
 	<Image class="max-w-lg w-9/12 min-w-8 max-h-96 lg:max-h-max lg:w-4/12 object-contain mb-8 lg:mb-0 lg:mr-8"  src={issue.data.image} alt="" />
-	<div class="max-w-5xl lg:px-0 lg:w-8/12">
-		<div class="mb-0 font-bold font-serif text-7xl leading-16">issue {issueNumber}</div>
-		<div class="mb-6 font-bold font-sans leading-10 text-5xl whitespace-break-spaces"><a class="">{issue.data.title}</a></div>
+	<div class="lg:px-0 lg:w-8/12">
+		<div class="mb-0 font-bold font-serif leading-[1] text-[clamp(3.25rem,4.25vw,4.5rem)]">issue {issueNumber}</div>
+		<div class="mb-6 font-semibold font-sans leading-[1] text-[clamp(1.75rem,2.5vw,3rem)] whitespace-break-spaces"><a class="">{issue.data.title}</a></div>
 		<div class="text-xl leading-6"><Content /></div>
 	</div>
 </div>
