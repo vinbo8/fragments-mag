@@ -12,14 +12,30 @@
 	const date = issue.data.date.toLocaleDateString('en-GB', dateOptions);
 ---
 
+<script>
+	function getSize(element) {
+		const elementFontSizePx = parseFloat(getComputedStyle(element).fontSize);
+		const rootFontSizePx = parseFloat(getComputedStyle(document.documentElement).fontSize);
+		const fontSizeInRem = elementFontSizePx / rootFontSizePx;
+		return fontSizeInRem;
+	}
+
+	function logSizes() {
+		let title = document.getElementById("title");
+		let subtitle = document.getElementById("subtitle");
+		console.log(getSize(title) + "rem\t" + getSize(subtitle) + "rem");
+	}
+	window.addEventListener('resize', logSizes);
+	logSizes();
+</script>
 
 <div class="w-full" style={`background-color: ${issue.data.colour}`}>
-<div class="flex flex-col lg:flex-row mx-[6vw] max-w-[96rem] py-24 items-center lg:items-start text-center lg:text-left" data-aos="fade-in">
-	<Image class="max-w-lg w-9/12 min-w-8 max-h-96 lg:max-h-max lg:w-4/12 object-contain mb-8 lg:mb-0 lg:mr-8"  src={issue.data.image} alt="" />
-	<div class="lg:px-0 lg:w-8/12">
-		<div class="mb-0 font-bold font-serif leading-[1] text-[clamp(3.25rem,4.25vw,4.5rem)]">issue {issueNumber}</div>
-		<div class="mb-6 font-semibold font-sans leading-[1] text-[clamp(1.75rem,2.5vw,3rem)] whitespace-break-spaces"><a class="">{issue.data.title}</a></div>
-		<div class="text-xl leading-6"><Content /></div>
+<div class="flex flex-col lg:flex-row mx-[6vw] py-24 items-center lg:items-start text-center lg:text-left" data-aos="fade-in">
+	<Image class="max-w-lg w-9/12 min-w-8 max-h-96 lg:max-h-max lg:w-[30%] object-contain mb-8 lg:mb-0 lg:mr-8"  src={issue.data.image} alt="" />
+	<div class="lg:px-0 lg:w-[70%]">
+		<div id="title" class="mb-0 font-bold font-serif leading-[1] text-[clamp(6rem,7.25vw,7rem)]">issue {issueNumber}</div>
+		<div id="subtitle" class="mb-4 font-semibold font-sans leading-[0.9] -translate-y-[15%] text-[clamp(3rem,3.6vw,3.5rem)] whitespace-break-spaces"><a class="">{issue.data.title}</a></div>
+		<div class="text-xl leading-[1.25] max-w-[70ch]"><Content /></div>
 	</div>
 </div>
 </div>
