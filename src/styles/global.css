@@ -43,6 +43,7 @@
     prose-headings:font-bold
     prose-p:text-xl prose-h4:text-4xl
     prose-h3:text-5xl lg:prose-h3:text-7xl prose-h3:my-8 prose-h3:font-serif
+    prose-a:text-p-blue-dark prose-a:hover:underline
   }
 
   .text-block-non-tw {
